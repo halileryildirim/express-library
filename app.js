@@ -29,15 +29,13 @@ app.use(
   })
 );
 
-// mongoose connection setup
+require("dotenv").config();
 
+// mongoose connection setup
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
-const dev_db_url =
-  "mongodb+srv://admin:admin123.@cluster0.bl5nd0x.mongodb.net/local_library?retryWrites=true&w=majority&appName=Cluster0";
-
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = process.env.URI;
 
 main().catch((err) => {
   console.log(err);
