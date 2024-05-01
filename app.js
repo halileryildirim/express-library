@@ -8,6 +8,7 @@ const usersRouter = require("./routes/users");
 const catalogRouter = require("./routes/catalog"); // Import routes for "catalog" area of site
 const compression = require("compression");
 const helmet = require("helmet");
+require("dotenv").config();
 const app = express();
 
 // Set up rate limiter: maximum of twenty requests per minute
@@ -28,8 +29,6 @@ app.use(
     },
   })
 );
-
-require("dotenv").config();
 
 // mongoose connection setup
 const mongoose = require("mongoose");
